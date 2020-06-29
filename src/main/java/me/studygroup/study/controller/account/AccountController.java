@@ -2,6 +2,8 @@ package me.studygroup.study.controller.account;
 
 import lombok.RequiredArgsConstructor;
 import me.studygroup.study.donmain.Account;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -18,9 +20,10 @@ public class AccountController {
 
     private final SignUpFormValidator signUpFormValidator;
     private final AccountRepository accountRepository;
+    private final JavaMailSender javaMailSender;
 
     @InitBinder("signUpForm")
-    public void initBInder(WebDataBinder webDataBinder){
+    public void initBinder(WebDataBinder webDataBinder){
         webDataBinder.addValidators(signUpFormValidator);
     }
 
@@ -45,9 +48,15 @@ public class AccountController {
                 .build();
 
         Account newAccount = accountRepository.save(account);
-        //
 
-        // TODO 회원 가입 처리
+        newAccount.generateEmailCheckToken();
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(newAccount.getEmail());
+        mailMessage.setSubject("Application, 회원 가입 인증");
+        mailMessage.setText("/check-email-token?token=" + newAccount.getEmailCheckToken() +
+                "&email=" + newAccount.getEmail());
+        javaMailSender.send(mailMessage);
+
         return "redirect:/";
         
     }
