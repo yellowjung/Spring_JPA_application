@@ -1,4 +1,4 @@
-package me.studygroup.study.controller.account;
+package me.studygroup.study.account;
 
 import lombok.Data;
 import lombok.Getter;

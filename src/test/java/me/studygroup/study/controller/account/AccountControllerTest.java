@@ -1,5 +1,6 @@
 package me.studygroup.study.controller.account;
 
+import me.studygroup.study.account.AccountRepository;
 import me.studygroup.study.donmain.Account;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.then;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.unauthenticated;
@@ -30,7 +30,8 @@ class AccountControllerTest {
 
     @Autowired private MockMvc mockMvc;
 
-    @Autowired AccountRepository accountRepository;
+    @Autowired
+    AccountRepository accountRepository;
 
     @MockBean
     JavaMailSender javaMailSender;

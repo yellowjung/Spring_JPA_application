@@ -1,4 +1,4 @@
-package me.studygroup.study.controller.account;
+package me.studygroup.study.account;
 
 import me.studygroup.study.donmain.Account;
 import org.springframework.data.jpa.repository.JpaRepository;

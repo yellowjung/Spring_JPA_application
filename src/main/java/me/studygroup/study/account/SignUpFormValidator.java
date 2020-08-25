@@ -1,4 +1,4 @@
-package me.studygroup.study.controller.account;
+package me.studygroup.study.account;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
