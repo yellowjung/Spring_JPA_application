@@ -68,6 +68,7 @@ class AccountControllerTest {
                 .andExpect(model().attributeExists("numberOfUser"))
                 .andExpect(view().name("account/checked-email"))
                 .andExpect(authenticated().withUsername("dony"));
+
     }
 
     @DisplayName("회원 가입 화면 보이는지 테스트")

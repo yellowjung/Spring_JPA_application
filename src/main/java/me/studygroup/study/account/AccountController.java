@@ -8,9 +8,11 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 
 @Controller
 @RequiredArgsConstructor
@@ -70,10 +72,10 @@ public class AccountController {
         return "account/check-email";
     }
 
-    @GetMapping("resend-confirm-email")
+    @GetMapping("/resend-confirm-email")
     public String resendConfirmEmail(@CurrentUser Account account, Model model){
         if(!account.canSendConfirmEmail()){
-            model.addAttribute("error","인증 이메일은 1시간에 한번만 전종할 수 있습니다.");
+            model.addAttribute("error","인증 이메일은 1시간에 한번만 전송할 수 있습니다.");
             model.addAttribute("email",account.getEmail());
             return "account/check-email";
         }
@@ -82,5 +84,16 @@ public class AccountController {
         return "redirect:/";
     }
 
+    @GetMapping("/profile/{nickname}")
+    public String viewProfile(@PathVariable String nickname, Model model, @CurrentUser Account account){
+        Account byNickname = accountRepository.findByNickname(nickname);
+        if(nickname == null){
+            throw new IllegalArgumentException(nickname + "에 해당하는 사용자가 없습니다.");
+        }
+
+        model.addAttribute(byNickname); //기본 account로 들어감 위에 Account인데 이게 Camel case로 자동으로
+        model.addAttribute("isOwner", byNickname.equals(account));
+        return "account/profile";
+    }
 
 }
