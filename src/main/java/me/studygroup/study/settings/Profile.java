@@ -1,9 +1,11 @@
 package me.studygroup.study.settings;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import me.studygroup.study.donmain.Account;
 
 @Data
+@NoArgsConstructor //Profile Update 시 Profile binding을 위해서 기본 생성자가 필요함
 public class Profile {
 
     private String bio;
