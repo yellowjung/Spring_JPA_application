@@ -2,23 +2,23 @@ package me.studygroup.study.settings;
 
 import me.studygroup.study.WithAccount;
 import me.studygroup.study.account.AccountRepository;
-import me.studygroup.study.account.AccountService;
-import me.studygroup.study.account.SignUpForm;
 import me.studygroup.study.donmain.Account;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.test.context.support.TestExecutionEvent;
-import org.springframework.security.test.context.support.WithUserDetails;
+
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -43,7 +43,7 @@ class SettingsControllerTest {
     @DisplayName("프로필 수정 폼")
     @Test
     void updateProfileForm() throws Exception{
-        String bio = "짧은 소개를 수정하는 경우.";
+        //"짧은 소개를 수정하는 경우.";
         mockMvc.perform(get(SettingsController.SETTINGS_PROFILE_URL))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("account"))
@@ -127,5 +127,18 @@ class SettingsControllerTest {
                 .andExpect(model().hasErrors())
                 .andExpect(model().attributeExists("passwordForm"))
                 .andExpect(model().attributeExists("account"));
+    }
+
+    @WithAccount("dony")
+    @DisplayName("Notification 확인")
+    @Test
+    void noticationCheck() throws Exception{
+        mockMvc.perform(get(SettingsController.SETTINGS_NOTIFICATIONS_URL)
+                .with(csrf()))
+                .andExpect(status().isOk());
+
+        Account dony = accountRepository.findByNickname("dony");
+        //assertTrue(dony.isStudyCreatedByWeb());
+
     }
 }
