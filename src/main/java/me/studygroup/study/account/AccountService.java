@@ -1,6 +1,7 @@
 package me.studygroup.study.account;
 
 import lombok.RequiredArgsConstructor;
+import me.studygroup.study.account.form.SignUpForm;
 import me.studygroup.study.donmain.Account;
 import me.studygroup.study.settings.form.Notifications;
 import me.studygroup.study.settings.form.Profile;
@@ -124,5 +125,16 @@ public class AccountService implements UserDetailsService {
         account.setNickname(nickname);
         accountRepository.save(account);
         login(account);
+    }
+
+    public void sendLoginLink(Account account) {
+        account.generateEmailCheckToken();
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(account.getEmail());
+        mailMessage.setSubject(account.getEmail());
+        mailMessage.setSubject("스터디 올래, 로그인 링크");
+        mailMessage.setText("/login-by-email?token="+account.getEmailCheckToken() +
+                "&email=" + account.getEmail());
+        javaMailSender.send(mailMessage);
     }
 }

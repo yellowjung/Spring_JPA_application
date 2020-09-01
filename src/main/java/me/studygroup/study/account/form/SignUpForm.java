@@ -1,4 +1,4 @@
-package me.studygroup.study.account;
+package me.studygroup.study.account.form;
 
 import lombok.Data;
 import lombok.Getter;
