@@ -1,4 +1,4 @@
-package me.studygroup.study.settings;
+package me.studygroup.study.settings.form;
 
 
 import lombok.Data;

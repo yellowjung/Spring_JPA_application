@@ -2,8 +2,8 @@ package me.studygroup.study.account;
 
 import lombok.RequiredArgsConstructor;
 import me.studygroup.study.donmain.Account;
-import me.studygroup.study.settings.Notifications;
-import me.studygroup.study.settings.Profile;
+import me.studygroup.study.settings.form.Notifications;
+import me.studygroup.study.settings.form.Profile;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.NameTokenizers;
 import org.springframework.mail.SimpleMailMessage;
@@ -118,5 +118,11 @@ public class AccountService implements UserDetailsService {
                 .setDestinationNameTokenizer(NameTokenizers.UNDERSCORE)
                 .setSourceNameTokenizer(NameTokenizers.UNDERSCORE);
         accountRepository.save(account);
+    }
+
+    public void updateNickname(Account account, String nickname) {
+        account.setNickname(nickname);
+        accountRepository.save(account);
+        login(account);
     }
 }
