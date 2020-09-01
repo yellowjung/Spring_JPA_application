@@ -6,7 +6,7 @@ import me.studygroup.study.donmain.Account;
 import org.hibernate.validator.constraints.Length;
 
 @Data
-@NoArgsConstructor //Profile Update 시 Profile binding을 위해서 기본 생성자가 필요함
+//@NoArgsConstructor //Profile Update 시 Profile binding을 위해서 기본 생성자가 필요함
 public class Profile {
 
     @Length(max = 35)
@@ -23,11 +23,11 @@ public class Profile {
     
     private String profileImage;
 
-    public Profile(Account account){
-        this.bio = account.getBio();
-        this.url = account.getUrl();
-        this.occupation = account.getOccupation();
-        this.location = account.getLocation();
-        this.profileImage = account.getProfileImage();
-    }
+//    public Profile(Account account){
+//        this.bio = account.getBio();
+//        this.url = account.getUrl();
+//        this.occupation = account.getOccupation();
+//        this.location = account.getLocation();
+//        this.profileImage = account.getProfileImage();
+//    }
 }
