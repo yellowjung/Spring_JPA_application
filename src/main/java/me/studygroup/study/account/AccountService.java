@@ -3,6 +3,7 @@ package me.studygroup.study.account;
 import lombok.RequiredArgsConstructor;
 import me.studygroup.study.account.form.SignUpForm;
 import me.studygroup.study.donmain.Account;
+import me.studygroup.study.donmain.Tag;
 import me.studygroup.study.settings.form.Notifications;
 import me.studygroup.study.settings.form.Profile;
 import org.modelmapper.ModelMapper;
@@ -21,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -136,5 +138,13 @@ public class AccountService implements UserDetailsService {
         mailMessage.setText("/login-by-email?token="+account.getEmailCheckToken() +
                 "&email=" + account.getEmail());
         javaMailSender.send(mailMessage);
+    }
+
+    public void addTag(Account account, Tag tag) {
+        Optional<Account> byId = accountRepository.findById(account.getId());
+        byId.ifPresent(a -> a.getTags().add(tag));
+
+        //Lazy Loading
+//        accountRepository.getOne()
     }
 }
