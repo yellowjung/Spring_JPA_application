@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@yaireo/tagify": "^3.17.10",
     "bootstrap": "^4.5.2",
     "cropper": "^4.1.0",
     "font-awesome": "^4.7.0",
