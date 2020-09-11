@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import me.studygroup.study.account.form.SignUpForm;
 import me.studygroup.study.donmain.Account;
 import me.studygroup.study.donmain.Tag;
+import me.studygroup.study.donmain.Zone;
 import me.studygroup.study.settings.form.Notifications;
 import me.studygroup.study.settings.form.Profile;
 import org.modelmapper.ModelMapper;
@@ -23,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.Set;
 
 @Service
@@ -150,5 +152,20 @@ public class AccountService implements UserDetailsService {
     public void removeTag(Account account, Tag tag) {
         Optional<Account> byId = accountRepository.findById(account.getId());
         byId.ifPresent(a -> a.getTags().remove(tag));
+    }
+
+    public Set<Zone> getZones(Account account) {
+        Optional<Account> byId = accountRepository.findById(account.getId());
+        return byId.orElseThrow().getZones();
+    }
+
+    public void removeZone(Account account, Zone zone) {
+        Optional<Account> byId = accountRepository.findById(account.getId());
+        byId.ifPresent(a -> a.getZones().remove(zone));
+    }
+
+    public void addZone(Account account, Zone zone) {
+        Optional<Account> byId = accountRepository.findById(account.getId());
+        byId.ifPresent(a -> a.getZones().add(zone));
     }
 }
