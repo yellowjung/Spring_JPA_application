@@ -113,9 +113,9 @@ public class AccountService implements UserDetailsService {
 //        account.setStudyUpdatedByEmail(notifications.isStudyUpdatedByEmail());
 //        account.setStudyEnrollmentResultByEmail(notifications.isStudyEnrollmentResultByEmail());
 //        account.setStudyEnrollmentResultByWeb(notifications.isStudyEnrollmentResultByWeb());
-        modelMapper.getConfiguration()
-                .setDestinationNameTokenizer(NameTokenizers.UNDERSCORE)
-                .setSourceNameTokenizer(NameTokenizers.UNDERSCORE);
+//        modelMapper.getConfiguration()
+//                .setDestinationNameTokenizer(NameTokenizers.UNDERSCORE)
+//                .setSourceNameTokenizer(NameTokenizers.UNDERSCORE);
         accountRepository.save(account);
     }
 
