@@ -87,13 +87,11 @@ public class AccountController {
 
     @GetMapping("/profile/{nickname}")
     public String viewProfile(@PathVariable String nickname, Model model, @CurrentAccount Account account){
-        Account byNickname = accountRepository.findByNickname(nickname);
-        if(nickname == null){
-            throw new IllegalArgumentException(nickname + "에 해당하는 사용자가 없습니다.");
-        }
 
-        model.addAttribute(byNickname); //기본 account로 들어감 위에 Account인데 이게 Camel case로 자동으로
-        model.addAttribute("isOwner", byNickname.equals(account));
+        Account accountToView = accountService.getAccount(nickname);
+
+        model.addAttribute(accountToView); //기본 account로 들어감 위에 Account인데 이게 Camel case로 자동으로
+        model.addAttribute("isOwner", accountToView.equals(account));
         return "account/profile";
     }
 
