@@ -12,6 +12,7 @@ import me.studygroup.study.settings.form.*;
 import me.studygroup.study.settings.validator.NicknameValidator;
 import me.studygroup.study.settings.validator.PasswordFormValidator;
 import me.studygroup.study.tag.TagRepository;
+import me.studygroup.study.tag.TagService;
 import me.studygroup.study.zone.ZoneRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,7 @@ public class SettingsController {
     private final TagRepository tagRepository;
     private final ObjectMapper objectMapper;
     private final ZoneRepository zoneRepository;
+    private final TagService tagService;
 
     @InitBinder("passwordForm")
     public void passwordFormInitBinder(WebDataBinder webDataBinder){
@@ -162,17 +164,17 @@ public class SettingsController {
     @PostMapping(TAGS + "/add")
     @ResponseBody
     public ResponseEntity addTag(@CurrentAccount Account account, @RequestBody TagForm tagForm){
-        String title = tagForm.getTagTitle();
-
-//        Tag tag = tagRepository.findByTitle(title).orElseGet(()-> tagRepository.save(Tag.builder()
-//        .title(tagForm.getTagTitle())
-//        .build()));
-
-        Tag tag = tagRepository.findByTitle(title);
-        if(tag == null){
-            tag = tagRepository.save(Tag.builder().title(title).build());
-        }
-
+//        String title = tagForm.getTagTitle();
+//
+////        Tag tag = tagRepository.findByTitle(title).orElseGet(()-> tagRepository.save(Tag.builder()
+////        .title(tagForm.getTagTitle())
+////        .build()));
+//
+//        Tag tag = tagRepository.findByTitle(title);
+//        if(tag == null){
+//            tag = tagRepository.save(Tag.builder().title(title).build());
+//        }
+        Tag tag = tagService.findOrCreateNew(tagForm.getTagTitle());
         accountService.addTag(account, tag);
 
         return ResponseEntity.ok().build();
