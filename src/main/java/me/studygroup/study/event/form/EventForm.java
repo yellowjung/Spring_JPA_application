@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDateTime;
 
 @Data
 public class EventForm {
@@ -31,6 +32,5 @@ public class EventForm {
 
     @Min(2)
     private Integer limitOfEnrollments = 2;
-
-
+    private ChronoLocalDateTime<?> endEnrollmentDateTime;
 }
