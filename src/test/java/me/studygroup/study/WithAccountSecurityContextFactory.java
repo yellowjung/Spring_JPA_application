@@ -20,7 +20,7 @@ public class WithAccountSecurityContextFactory implements WithSecurityContextFac
         String nickname = withAccount.value();
 
         SignUpForm signUpForm = new SignUpForm();
-        signUpForm.setNickname("dony");
+        signUpForm.setNickname(nickname);
         signUpForm.setEmail(nickname + "@email.com");
         signUpForm.setPassword("12345678");
         accountService.processNewAccount(signUpForm);

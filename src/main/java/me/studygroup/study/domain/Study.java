@@ -139,6 +139,10 @@ public class Study {
         return URLEncoder.encode(this.path, StandardCharsets.UTF_8);
     }
 
+    public void addMember(Account account) {
+        this.members.add(account);
+    }
+
     public void removeMember(Account account) {
         this.getMembers().remove(account);
     }

@@ -24,7 +24,6 @@ public class StudyService {
     public Study createNewStudy(Study study, Account account) {
         Study newStudy = repository.save(study);
         newStudy.addManager(account);
-
         return newStudy;
     }
 
@@ -153,4 +152,15 @@ public class StudyService {
     public void removeMember(Study study, Account account) {
         study.removeMember(account);
     }
+
+    public Study getStudyToEnroll(String path) {
+        Study study = repository.findStudyOnlyByPath(path);
+        checkIfExistingStudy(path, study);
+        return study;
+    }
+
+    public void addMember(Study study, Account account) {
+        study.addMember(account);
+    }
+
 }
