@@ -2,8 +2,6 @@ package me.studygroup.study.settings.form;
 
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import me.studygroup.study.donmain.Account;
 
 @Data
 //@NoArgsConstructor

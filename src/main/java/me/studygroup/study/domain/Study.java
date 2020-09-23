@@ -1,9 +1,7 @@
-package me.studygroup.study.donmain;
+package me.studygroup.study.domain;
 
 import lombok.*;
 import me.studygroup.study.account.UserAccount;
-import org.apache.tomcat.jni.Local;
-import org.springframework.scheduling.quartz.LocalDataSourceJobStore;
 
 import javax.persistence.*;
 import java.net.URLEncoder;

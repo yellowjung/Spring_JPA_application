@@ -1,9 +1,9 @@
 package me.studygroup.study.event;
 
 import lombok.RequiredArgsConstructor;
-import me.studygroup.study.donmain.Account;
-import me.studygroup.study.donmain.Event;
-import me.studygroup.study.donmain.Study;
+import me.studygroup.study.domain.Account;
+import me.studygroup.study.domain.Event;
+import me.studygroup.study.domain.Study;
 import me.studygroup.study.event.form.EventForm;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

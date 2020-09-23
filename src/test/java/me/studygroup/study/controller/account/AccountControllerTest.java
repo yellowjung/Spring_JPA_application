@@ -1,7 +1,7 @@
 package me.studygroup.study.controller.account;
 
 import me.studygroup.study.account.AccountRepository;
-import me.studygroup.study.donmain.Account;
+import me.studygroup.study.domain.Account;
 import me.studygroup.study.mail.EmailMessage;
 import me.studygroup.study.mail.EmailService;
 import org.junit.jupiter.api.DisplayName;
@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 

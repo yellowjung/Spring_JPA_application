@@ -1,7 +1,7 @@
 package me.studygroup.study.zone;
 
 import lombok.Data;
-import me.studygroup.study.donmain.Zone;
+import me.studygroup.study.domain.Zone;
 
 @Data
 public class ZoneForm {

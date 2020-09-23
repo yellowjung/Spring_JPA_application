@@ -1,14 +1,13 @@
 package me.studygroup.study.event.form;
 
 import lombok.Data;
-import me.studygroup.study.donmain.EventType;
+import me.studygroup.study.domain.EventType;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import java.time.chrono.ChronoLocalDateTime;
 
 @Data
 public class EventForm {
@@ -22,7 +21,7 @@ public class EventForm {
     private EventType eventType = EventType.FCFS;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime endEnrollmentDataTime;
+    private LocalDateTime endEnrollmentDateTime;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime startDateTime;
@@ -32,5 +31,7 @@ public class EventForm {
 
     @Min(2)
     private Integer limitOfEnrollments = 2;
-    private ChronoLocalDateTime<?> endEnrollmentDateTime;
+
+
+
 }

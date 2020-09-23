@@ -1,7 +1,7 @@
 package me.studygroup.study.zone;
 
 import lombok.RequiredArgsConstructor;
-import me.studygroup.study.donmain.Zone;
+import me.studygroup.study.domain.Zone;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;

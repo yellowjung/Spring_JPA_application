@@ -1,6 +1,6 @@
 package me.studygroup.study.account;
 
-import me.studygroup.study.donmain.Account;
+import me.studygroup.study.domain.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 

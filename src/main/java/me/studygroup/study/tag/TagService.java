@@ -1,7 +1,7 @@
 package me.studygroup.study.tag;
 
 import lombok.RequiredArgsConstructor;
-import me.studygroup.study.donmain.Tag;
+import me.studygroup.study.domain.Tag;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

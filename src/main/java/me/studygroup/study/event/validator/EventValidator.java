@@ -1,6 +1,6 @@
 package me.studygroup.study.event.validator;
 
-import me.studygroup.study.donmain.Event;
+import me.studygroup.study.domain.Event;
 import me.studygroup.study.event.form.EventForm;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

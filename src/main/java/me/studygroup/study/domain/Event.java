@@ -1,13 +1,9 @@
-package me.studygroup.study.donmain;
+package me.studygroup.study.domain;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import lombok.*;
 import me.studygroup.study.account.UserAccount;
-import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
-import java.security.PrivateKey;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 

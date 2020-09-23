@@ -1,7 +1,7 @@
 package me.studygroup.study.account;
 
 import lombok.Getter;
-import me.studygroup.study.donmain.Account;
+import me.studygroup.study.domain.Account;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 

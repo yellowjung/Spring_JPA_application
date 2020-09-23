@@ -1,4 +1,4 @@
-package me.studygroup.study.donmain;
+package me.studygroup.study.domain;
 
 import lombok.Getter;
 import lombok.Setter;

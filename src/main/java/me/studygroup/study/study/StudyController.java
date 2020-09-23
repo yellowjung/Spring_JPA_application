@@ -2,8 +2,8 @@ package me.studygroup.study.study;
 
 import lombok.RequiredArgsConstructor;
 import me.studygroup.study.account.CurrentAccount;
-import me.studygroup.study.donmain.Account;
-import me.studygroup.study.donmain.Study;
+import me.studygroup.study.domain.Account;
+import me.studygroup.study.domain.Study;
 import me.studygroup.study.study.form.StudyForm;
 import me.studygroup.study.study.validator.StudyFormValidator;
 import org.modelmapper.ModelMapper;

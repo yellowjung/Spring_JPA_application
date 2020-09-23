@@ -1,7 +1,7 @@
 package me.studygroup.study.study;
 
 
-import me.studygroup.study.donmain.Study;
+import me.studygroup.study.domain.Study;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;

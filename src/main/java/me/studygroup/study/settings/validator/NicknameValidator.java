@@ -2,7 +2,7 @@ package me.studygroup.study.settings.validator;
 
 import lombok.RequiredArgsConstructor;
 import me.studygroup.study.account.AccountRepository;
-import me.studygroup.study.donmain.Account;
+import me.studygroup.study.domain.Account;
 import me.studygroup.study.settings.form.NicknameForm;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

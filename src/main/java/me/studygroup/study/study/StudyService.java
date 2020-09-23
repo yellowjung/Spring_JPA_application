@@ -1,10 +1,10 @@
 package me.studygroup.study.study;
 
 import lombok.RequiredArgsConstructor;
-import me.studygroup.study.donmain.Account;
-import me.studygroup.study.donmain.Study;
-import me.studygroup.study.donmain.Tag;
-import me.studygroup.study.donmain.Zone;
+import me.studygroup.study.domain.Account;
+import me.studygroup.study.domain.Study;
+import me.studygroup.study.domain.Tag;
+import me.studygroup.study.domain.Zone;
 import me.studygroup.study.study.form.StudyDescriptionForm;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.access.AccessDeniedException;
