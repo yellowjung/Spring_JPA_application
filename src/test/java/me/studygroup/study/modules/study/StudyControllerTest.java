@@ -1,7 +1,8 @@
 package me.studygroup.study.modules.study;
 
 import lombok.RequiredArgsConstructor;
-import me.studygroup.study.controller.account.WithAccount;
+import me.studygroup.study.infra.AbstractContainerBaseTest;
+import me.studygroup.study.modules.account.WithAccount;
 import me.studygroup.study.modules.account.AccountRepository;
 import me.studygroup.study.modules.account.Account;
 import org.junit.jupiter.api.AfterEach;
@@ -23,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @RequiredArgsConstructor
-public class StudyControllerTest {
+public class StudyControllerTest extends AbstractContainerBaseTest {
 
     @Autowired protected MockMvc mockMvc;
     @Autowired protected StudyService studyService;

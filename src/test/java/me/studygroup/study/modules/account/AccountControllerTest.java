@@ -1,5 +1,7 @@
-package me.studygroup.study.controller.account;
+package me.studygroup.study.modules.account;
 
+import me.studygroup.study.infra.AbstractContainerBaseTest;
+import me.studygroup.study.infra.MockMvcTest;
 import me.studygroup.study.modules.account.AccountRepository;
 import me.studygroup.study.modules.account.Account;
 import me.studygroup.study.infra.mail.EmailMessage;
@@ -12,6 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -23,15 +28,11 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@Transactional
-@SpringBootTest
-@AutoConfigureMockMvc
-class AccountControllerTest {
+@MockMvcTest
+class AccountControllerTest extends AbstractContainerBaseTest {
 
-    @Autowired private MockMvc mockMvc;
-
-    @Autowired
-    AccountRepository accountRepository;
+    @Autowired MockMvc mockMvc;
+    @Autowired AccountRepository accountRepository;
 
     @MockBean
     EmailService emailService;

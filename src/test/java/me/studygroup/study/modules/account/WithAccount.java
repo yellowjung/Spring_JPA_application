@@ -1,4 +1,4 @@
-package me.studygroup.study.controller.account;
+package me.studygroup.study.modules.account;
 
 import org.springframework.security.test.context.support.WithSecurityContext;
 

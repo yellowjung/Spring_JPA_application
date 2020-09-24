@@ -1,7 +1,6 @@
-package me.studygroup.study.controller.account;
+package me.studygroup.study.modules.account;
 
 import lombok.RequiredArgsConstructor;
-import me.studygroup.study.modules.account.AccountService;
 import me.studygroup.study.modules.account.form.SignUpForm;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
